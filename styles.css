@@ -1,0 +1,110 @@
+body {
+  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    display: grid; 
+    margin: 0;
+    grid-template-rows: repeat(2, 400px);
+    grid-template-areas: 
+                        "ship"
+                        "water"
+                        }   
+
+.stars {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:50%;
+    display:block;
+   
+   
+  }
+        
+    
+#vessel {
+    grid-area: ship;
+    position: relative;
+    top: 262px;
+    right: 400px;
+         
+}
+
+.iceberg {
+    grid-area: ship;
+    position: relative;
+    top: 180px;
+    left: 300px;
+    transform: scale(0.8);
+       }
+
+.water {
+    grid-area: water;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: darkblue;
+        
+}
+
+.water iframe, 
+.water img {
+  margin: 30px 15px;
+}
+
+.moon {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    height: 50px;
+    width: 50px;
+    background-color:yellow;
+    border-radius: 50%;
+    
+  }
+
+  .darkmoon {
+    position: absolute;
+    top: 50px;
+    right: 120px;
+    height: 50px;
+    width: 50px;
+    background-color:black;
+    border-radius: 50%;
+  }
+
+  #time {
+    text-align:center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    padding-top: 50px;
+    color: white;
+     }
+
+@keyframes moving_sinking {
+    0% {
+       -webkit-transform: translate(0px,0);
+    }
+
+    
+    60% {
+      -webkit-transform: translate(950px,0);
+    }
+  
+   75% {
+        -webkit-transform: translate(950px,20px) rotate(5deg);
+    }
+   
+   80% {
+        -webkit-transform: translate(950px,90px) rotate(20deg);
+    }
+
+  90% {
+    -webkit-transform: translate(870px,210px) rotate(90deg);
+}
+   
+    100% {
+       -webkit-transform: translate(870px,280px) rotate(90deg);
+      
+    }
+}
