@@ -81,6 +81,13 @@ body {
     color: white;
      }
 
+  #wreck {
+    float: right; 
+    margin-right:100px;
+   
+    visibility: hidden;
+    }
+
 @keyframes moving_sinking {
     0% {
        -webkit-transform: translate(0px,0);
@@ -104,7 +111,7 @@ body {
 }
    
     100% {
-       -webkit-transform: translate(870px,280px) rotate(90deg);
+       -webkit-transform: translate(870px,360px) rotate(90deg);
       
     }
 }
