@@ -1,10 +1,17 @@
+
+html, .water {
+  background-color: darkblue
+}
+
 body {
-  background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
-    display: grid; 
-    margin: 0;
-    grid-template-rows: repeat(2, 400px);
-    grid-template-areas: 
-                        "ship"
+  background-color: black;
+  background-image: 
+   url(http://www.script-tutorials.com/demos/360/images/stars.png);
+  display: grid; 
+  margin: 0;
+  grid-template-rows: repeat(2, 400px);
+  grid-template-areas: 
+                        "vessel"
                         "water"
                         }   
 
@@ -17,33 +24,32 @@ body {
     width:100%;
     height:50%;
     display:block;
-   
-   
+    
   }
         
-    
 #vessel {
-    grid-area: ship;
+    grid-area: vessel;
     position: relative;
+    z-index: 0;
     top: 262px;
     right: 400px;
-         
-}
+    }
 
 .iceberg {
-    grid-area: ship;
+    grid-area: vessel;
     position: relative;
     top: 180px;
     left: 300px;
+    z-index: 1;
     transform: scale(0.8);
        }
 
 .water {
     grid-area: water;
+    position: relative;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    background-color: darkblue;
+    z-index: 2;
         
 }
 
@@ -54,25 +60,16 @@ body {
 
 .moon {
     position: absolute;
-    top: 50px;
+    top: 30px;
     right: 100px;
-    height: 50px;
-    width: 50px;
-    background-color:yellow;
-    border-radius: 50%;
-    
-  }
-
-  .darkmoon {
-    position: absolute;
-    top: 50px;
-    right: 120px;
-    height: 50px;
-    width: 50px;
+    height: 10rem;
+    width: 10rem;
+    transform: scale(0.6);
     background-color:black;
+    box-shadow: 50px 0px #f3d076;
     border-radius: 50%;
-  }
-
+     }
+  
   #time {
     text-align:center;
     font-family: 'Dancing Script', cursive;
@@ -82,10 +79,9 @@ body {
      }
 
   #wreck {
-    float: right; 
-    margin-right:100px;
-   
-    visibility: hidden;
+   float: right; 
+   margin-right:100px;
+   visibility: hidden;
     }
 
 @keyframes moving_sinking {
