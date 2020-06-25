@@ -111,3 +111,10 @@ body {
       
     }
 }
+
+@media (max-width: 1350px) {
+
+ #time {
+     z-index: 10;
+   }
+}

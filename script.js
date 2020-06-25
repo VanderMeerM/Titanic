@@ -5,9 +5,8 @@ document.getElementById("vessel")
 
 function checkScreenwidth() {
     if (window.outerWidth < 1350) {
-        document.querySelector('.moon').style.display = "none";
-        alert(
-            'Unfortunately this animation is optimized for a minimum (outer) width of 1350 pixels.');
+         alert(
+            'This animation is optimized for a minimum (outer) width of 1350 pixels.');
     }
     else { move() };
 }
