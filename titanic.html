@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,4 +76,83 @@
 </body>
 
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic</title>
+    <link rel="shortcut icon" href="./Titanic/pics/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Titanic/titanic.css">
+    <script defer type="text/javascript" src="./Titanic/titanic.js"></script>
+
+</head>
+
+<body>
+
+    <div class="stars" id="time">
+        Wat gebeurde er op die fatale nacht van 14 april 1912 in de Atlantische Oceaan? <br>
+        <!--
+        What happened on that faithfull night of April 14, 1912 in the Northern Atlanctic? 
+        -->
+    </div>
+    <audio id="iceberg" src="./Titanic/audio/iceberg.mp3" type="audio/mpeg"></audio>
+    <audio id="collission" src="./Titanic/audio/collision.wav" type="audio/mpeg"></audio>
+    <audio id="heart" src="./Titanic/audio/MyHeartWillGoOn.mp3" type="audio/mpeg"></audio>
+
+
+    <div class="arrow">Click on the vessel to start</div>
+    <img id="yelarr" src="./Titanic/pics/arrow.png">
+
+    <div id="vessel-front"> <img src="./Titanic/pics/titanic_front_without funnels.png">
+        <div id="funnel3"> <img src="./Titanic/pics/funnel3.png"></div>
+        <div id="funnel4"> <img src="./Titanic/pics/funnel4.png"></div>
+    </div>
+    <div id="vessel-rear"> <img src="./Titanic/pics/titanic_rear_without funnels.png">
+        <div id="vessel-rear_between"></div>
+        <div id="funnel1"> <img src="./Titanic/pics/funnel1.png"></div>
+        <div id="funnel2"> <img src="./Titanic/pics/funnel2.png"></div>
+    </div>
+    <div id="lifeboat_container"></div>
+    <div id="people"></div>
+
+    <div class="iceberg"><img src="./Titanic/pics/iceberg.png"></div>
+    <div class="water">
+
+        <div id="map"></div>
+
+        <script>
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 2,
+                    center: { lat: 41.7311, lng: -49.949444 },
+                    mapTypeId: 'satellite',
+                    disableDefaultUI: true
+                });
+
+                new google.maps.Marker({
+                    position: { lat: 41.7311, lng: -49.949444 },
+                    map,
+                    title: "Titanic wreck",
+                });
+            }
+
+            window.initMap = initMap;
+
+        </script>
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=<XXX>&callback=initMap&v=weekly" defer></script>
+
+
+    </div>
+
+
+</body>
+
+
+>>>>>>> 658a42b8e982749518538201bae188fd81891ced
 </html>
