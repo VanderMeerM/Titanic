@@ -15,12 +15,20 @@ var space_time = dot_time*7;
       var tone_dit = function(time, char) {
   osc.start(time);
   osc.stop(time+dot_time);
+<<<<<<< HEAD
  // addMorseText('• ', char);
+=======
+ // addMorseText('â€¢ ', char);
+>>>>>>> 5175e3f (new files)
 }
 var tone_dah = function(time, char) {
   osc.start(time);
   osc.stop(time+dash_time);
+<<<<<<< HEAD
  // addMorseText('▬ ', char);
+=======
+ // addMorseText('â–¬ ', char);
+>>>>>>> 5175e3f (new files)
 }
 
 var tone_word_space = function(time) {
@@ -110,4 +118,7 @@ function playCQD() {
         playSeeYa();
     })
     */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5175e3f (new files)
