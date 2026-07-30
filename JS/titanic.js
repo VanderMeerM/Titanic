@@ -1,10 +1,7 @@
 
 const time = document.getElementById('time');
-<<<<<<< HEAD
-=======
 const vesselComplete = document.querySelector('.container_vessel');
 const vesselPieces = document.querySelector('.container_vessel_pieces');
->>>>>>> 5175e3f (new files)
 const vesselFront = document.getElementById('vessel-front');
 const vesselRear = document.getElementById('vessel-rear');
 const icebergWarning = document.getElementById('iceberg');
@@ -24,29 +21,17 @@ const timeStartPlaySeeYa = 31000;
 const timeStartPlayCQD = 10000;
 
 
-<<<<<<< HEAD
-
-=======
 /*
->>>>>>> 5175e3f (new files)
 
 if (Math.ceil((premiere-today)/86400000) < 0) {
     restdays = '';
 } 
 else if (Math.ceil((premiere-today)/86400000) == 1) {
-<<<<<<< HEAD
-    restdays = 'Nog 1 dag tot de première...';
-}
-
-else {
-    restdays = `Nog ${Math.ceil((premiere-today)/86400000)} dagen tot de première...`;
-=======
     restdays = 'Nog 1 dag tot de premiÃ¨re...';
 }
 
 else {
     restdays = `Nog ${Math.ceil((premiere-today)/86400000)} dagen tot de premiÃ¨re...`;
->>>>>>> 5175e3f (new files)
 }
 
 checkScreenwidth();
@@ -81,15 +66,12 @@ function checkScreenwidth() {
 
 }
 
-<<<<<<< HEAD
-=======
 */
 
 vesselComplete.addEventListener('click', () => { moveVessel() });
 
 //vesselRear.addEventListener('click', () => { moveVessel() });
 
->>>>>>> 5175e3f (new files)
 
 function showLifeBoats(pos_left, num) {
 
@@ -125,19 +107,6 @@ function showPeopleInSea(position_left, position_top, num) {
 
 function moveVessel() {
 
-<<<<<<< HEAD
-    document.querySelector('.arrow').style.visibility = 'hidden';
-    document.querySelector('#yelarr').style.visibility = 'hidden';
-
-    vesselFront.style.animation = "moving_sinking_front 20s";
-
-    vesselRear.style.animation = "moving_sinking_rear 20s";
-
-    icebergWarning.play();
-
-    time.textContent = 'April 14, 1912 23:40';
-
-=======
    // document.querySelector('.arrow').style.visibility = 'hidden';
   //  document.querySelector('#yelarr').style.visibility = 'hidden';
 
@@ -150,7 +119,6 @@ function moveVessel() {
     time.textContent = 'April 14, 1912 23:40';
 
     /*
->>>>>>> 5175e3f (new files)
     setTimeout(() => {
         collission.play();
     }, 2500);
@@ -204,14 +172,6 @@ function moveVessel() {
         document.getElementById('wifi3').style.visibility = 'hidden';
     }, timeStartPlayCQD + 3000);
 
-<<<<<<< HEAD
-   
-    setTimeout(() => {
-        vesselFront.style.zIndex = 3;
-    }, 12500);
-
-    setTimeout(() => {
-=======
    */
 
     setTimeout(() => {
@@ -231,19 +191,10 @@ function moveVessel() {
 
     /*
     setTimeout(() => {
->>>>>>> 5175e3f (new files)
         time.textContent = 'April 15, 1912 0:30';
         funnel4.style.animation = "falloff_funnels_front 7s";
         showLifeBoats(900, 10);
     }, 13000);
-<<<<<<< HEAD
-
-    setTimeout(() => {
-        funnel3.style.animation = "falloff_funnels_front 6s";
-        showLifeBoats(900, 8);
-        heartSong.play();
-    }, 14000);
-=======
 */
     setTimeout(() => {
         vesselFront.style.animation = "moving_sinking_front 5s";
@@ -252,7 +203,6 @@ function moveVessel() {
         showLifeBoats(900, 8);
        // heartSong.play();
     }, 16000);
->>>>>>> 5175e3f (new files)
 
     setTimeout(() => {
         time.textContent = 'April 15, 1912 1:30';
@@ -263,11 +213,7 @@ function moveVessel() {
         funnel2.style.animation = "falloff_funnels_back 5s";
         showLifeBoats(900, 6)
 
-<<<<<<< HEAD
-    }, 15000);
-=======
     }, 20000);
->>>>>>> 5175e3f (new files)
 
 
     setTimeout(() => {
@@ -303,19 +249,12 @@ function moveVessel() {
     }, 25000);
 
     setTimeout(() => {
-<<<<<<< HEAD
-        time.textContent = 'Benieuwd hoe het er vóór de aanvaring aan boord aan toeging?';
-=======
         time.textContent = 'In april 2024 zette MusicalMakers dit verhaal op de planken.';
->>>>>>> 5175e3f (new files)
         time.style.fontFamily = 'Arial';
 
     }, 27500);
 
-<<<<<<< HEAD
-=======
     /*
->>>>>>> 5175e3f (new files)
     setTimeout(() => {
         time.innerHTML = 
        // Kom kijken en koop je kaartje op musicalmakers.nl ! <br>
@@ -349,10 +288,7 @@ function moveVessel() {
 
     }, 30000);
 
-<<<<<<< HEAD
-=======
    
->>>>>>> 5175e3f (new files)
     // TOT 
     setTimeout(() => { 
         document.querySelector('.stars').style.zIndex = "100";
@@ -400,15 +336,9 @@ function moveVessel() {
     setTimeout(() => { 
         tone_dit(Tone.now())}, timeStartPlaySeeYa + 4200);
  
-<<<<<<< HEAD
-}
-
-
-=======
          */
 }
  
->>>>>>> 5175e3f (new files)
 
 
 
