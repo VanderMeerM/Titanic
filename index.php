@@ -22,6 +22,10 @@ echo '
 
 <div class="sky">
 
+<audio id="iceberg" src="./audio/iceberg.mp3" type="audio/mpeg"></audio>
+<audio id="collission" src="./audio/collision.wav" type="audio/mpeg"></audio>
+<audio id="heart" src="./audio/MyHeartWillGoOn.mp3" type="audio/mpeg"></audio>
+
  <div id="time"> Wat gebeurde er op die fatale nacht van 14 april 1912 in de Atlantische Oceaan? </div> 
 
 <div class="container_vessel">

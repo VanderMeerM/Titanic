@@ -114,15 +114,16 @@ function moveVessel() {
 
    // vesselRear.style.animation = "moving_sinking_rear 20s";
 
-  //  icebergWarning.play();
+   icebergWarning.play();
 
     time.textContent = 'April 14, 1912 23:40';
 
-    /*
+    
     setTimeout(() => {
         collission.play();
     }, 2500);
 
+/*
 
      // C 
     setTimeout(() => { 
@@ -208,7 +209,7 @@ function moveVessel() {
         funnel1.style.animation = "falloff_funnels_back 5s";
         funnel2.style.animation = "falloff_funnels_back 5s";
         showLifeBoats(900, 8);
-       // heartSong.play();
+        heartSong.play();
     }, 16000);
 
  
@@ -254,15 +255,17 @@ function moveVessel() {
         time.textContent = 'In april 2024 zette MusicalMakers dit verhaal op de planken.';
         time.style.fontFamily = 'Arial';
 
+        const newContainer = document.createElement('div');
         const newDiv = document.createElement('div');
         const newImg = document.createElement('img');
+
         newImg.src = './img/titanic_musical.png';
-      
         newImg.style.height = `auto`; //`${measure_heigth}px`;
         newImg.style.width = `80%`; //`${measure_width}px`;
 
+
         newDiv.setAttribute('class', 'container_mm');
-        newDiv.style.display = 'flex';
+        //newDiv.style.display = 'flex';
         newDiv.appendChild(newImg);
         document.body.appendChild(newDiv);
 
