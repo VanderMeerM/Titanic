@@ -85,8 +85,8 @@ function showLifeBoats(pos_left, num) {
         divBoatRight.style.visibility = 'visible';
         divBoatLeft.style.left = `${pos_left + random}px`;
         divBoatRight.style.left = `${pos_left + random + 12}px`;
-        document.getElementById('lifeboat_container').appendChild(divBoatLeft);
-        document.getElementById('lifeboat_container').appendChild(divBoatRight);
+        document.querySelector('.lifeboat_container').appendChild(divBoatLeft);
+        document.querySelector('.lifeboat_container').appendChild(divBoatRight);
     }
 }
 
@@ -100,7 +100,7 @@ function showPeopleInSea(position_left, position_top, num) {
         humanInSea.style.visibility = 'visible';
         humanInSea.style.left = `${position_left + randomLeft}px`;
         humanInSea.style.top = `${position_top + randomTop}px`;
-        document.getElementById('people').appendChild(humanInSea);
+        document.querySelector('.people_container').appendChild(humanInSea);
     }
 }
 
@@ -185,9 +185,13 @@ function moveVessel() {
  setTimeout(() => {
         time.textContent = 'April 15, 1912 0:30';
         vesselPieces.style.animation = "sinking_vessel_complete 5s ease-in";
-        funnel4.style.animation = "falloff_funnels_front 7s";
         showLifeBoats(900, 10);
     }, 11000);
+
+     setTimeout(() => {
+       funnel4.style.animation = "falloff_funnels_front 7s";
+        showLifeBoats(900, 10);
+    }, 12000);
 
     /*
     setTimeout(() => {
@@ -197,62 +201,83 @@ function moveVessel() {
     }, 13000);
 */
     setTimeout(() => {
-        vesselFront.style.animation = "moving_sinking_front 5s";
-        vesselRear.style.animation = "moving_sinking_rear 5s";
-        funnel3.style.animation = "falloff_funnels_front 6s";
+       // vesselFront.style.animation = "moving_sinking_front 10s";
+        vesselFront.style.visibility = 'hidden';
+        vesselRear.style.animation = "moving_sinking_rear 10s";
+        funnel3.style.animation = "falloff_funnels_front 5s";
+        funnel1.style.animation = "falloff_funnels_back 5s";
+        funnel2.style.animation = "falloff_funnels_back 5s";
         showLifeBoats(900, 8);
        // heartSong.play();
     }, 16000);
 
+ 
     setTimeout(() => {
         time.textContent = 'April 15, 1912 1:30';
+
+        funnel1.style.visibility = "hidden";
+        funnel2.style.visibility = "hidden";
         funnel3.style.visibility = "hidden";
         funnel4.style.visibility = "hidden";
 
-        funnel1.style.animation = "falloff_funnels_back 5s";
-        funnel2.style.animation = "falloff_funnels_back 5s";
         showLifeBoats(900, 6)
 
     }, 20000);
 
-
-    setTimeout(() => {
-        vesselFront.style.visibility = 'hidden';
-
-    }, 16000);
-
-
     setTimeout(() => {
         time.textContent = 'April 15, 1912 2:00';
 
-    }, 17000);
+    }, 23000);
 
     setTimeout(() => {
         time.textContent = 'April 15, 1912 2:20';
-        vesselRear.style.visibility = 'hidden';
-        showPeopleInSea(970, 400, 100);
+        showPeopleInSea(970, -300, 100);
 
-    }, 19500);
+    }, 24500);
 
     setTimeout(() => {
         time.innerHTML =  //April 15, 1912 2:20 <br>
         `1500 passagiers vonden de dood... <br>`;
-         time.style.fontFamily = 'Arial';
+        time.style.fontFamily = 'Arial';
+        vesselRear.style.visibility = 'hidden';
 
-    }, 22500);
+    }, 26500);
 
     setTimeout(() => {
         time.innerHTML = //April 15, 1912 2:20 <br>
         `300 kwamen in het ijskoude water terecht...`;
         time.style.fontFamily = 'Arial';
 
-    }, 25000);
+    }, 28000);
 
     setTimeout(() => {
         time.textContent = 'In april 2024 zette MusicalMakers dit verhaal op de planken.';
         time.style.fontFamily = 'Arial';
 
-    }, 27500);
+        const newDiv = document.createElement('div');
+        const newImg = document.createElement('img');
+        newImg.src = './img/titanic_musical.png';
+      
+        newImg.style.height = `auto`; //`${measure_heigth}px`;
+        newImg.style.width = `80%`; //`${measure_width}px`;
+
+        newDiv.setAttribute('class', 'container_mm');
+        newDiv.style.display = 'flex';
+        newDiv.appendChild(newImg);
+        document.body.appendChild(newDiv);
+
+        const divReload = document.createElement('div');
+        const imgReload = document.createElement('img');
+        imgReload.src = './img/reload.png';
+        divReload.setAttribute('id', 'overlay_reload');
+        divReload.appendChild(imgReload);
+        document.querySelector('.container_reload').appendChild(divReload);
+
+        imgReload.addEventListener('click', () => {
+            location.reload();
+        })
+
+    }, 30000);
 
     /*
     setTimeout(() => {

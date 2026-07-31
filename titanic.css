@@ -1,63 +1,3 @@
-<<<<<<< HEAD
-html,
-.water {
-  background-color: darkblue
-}
-
-body {
-  background-color: black;
-  background-image:
-    url(./pics/stars.png);
-  display: grid;
-  margin: 0;
-  grid-template-rows: repeat(2, 400px);
-  grid-template-areas:
-    "vessel"
-    "water"
-}
-
-.relative {
-  position: relative;
-}
-
-.stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10%;
-  display: block;
-  
-}
-
-#vessel-front,
-#vessel-rear {
-  grid-area: vessel;
-  width: 160px;
-  height: 100px;
-  position: relative;
-  z-index: 0;
-  top: 335px;
-  right: -195px;
-}
-
-#vessel-rear {
-  right: -24px;
-  top: 344px;
-
-}
-
-#vessel-rear_between {
-  position: absolute;
-  right: -35px;
-  top: 55px;
-  width: 35px;
-  height: 5px;
-  background-color: #82271d;
-}
-=======
 
 
 :root {
@@ -86,7 +26,7 @@ body {
     bottom: 0px;
     height: 50vh;
     width: 120vw;
-    z-index: 2;
+    z-index: 2; 
  }
 
  #time {
@@ -102,7 +42,7 @@ body {
 .container_vessel_pieces {
   display: flex;
   position: absolute;
-  bottom: -1%;
+  bottom: 0;
   align-items: flex-end;
   margin-left: 2%;
   }
@@ -119,7 +59,7 @@ body {
 }
 
 .container_vessel_pieces {
-left: 60%;
+left: 59%;
 visibility: hidden;
 }
 
@@ -128,9 +68,9 @@ visibility: hidden;
  #vessel-rear  {
     width: 160px;
     height: 100px;
-    top: -3.5%; 
+    top: 8%; 
     position: relative;
-    z-index: 0;
+    z-index: 0; 
     align-content: flex-end;
  }
  
@@ -138,20 +78,13 @@ visibility: hidden;
     top: 8px;   
   }
   
->>>>>>> 5175e3f (new files)
 
 #funnel1,
 #funnel2,
 #funnel3,
 #funnel4 {
-<<<<<<< HEAD
-  grid-area: vessel;
-  position: absolute;
-  top: 0px;
-=======
   position: absolute;
   top: 27%;
->>>>>>> 5175e3f (new files)
   right: 30px;
 }
 
@@ -159,11 +92,6 @@ visibility: hidden;
   right: -10px;
 }
 
-<<<<<<< HEAD
-#funnel3 {
-  top: 10px;
-  right: 130px;
-=======
 #funnel3, 
 #funnel4 {
   top: 20%;
@@ -172,17 +100,40 @@ visibility: hidden;
 
 #funnel4 {
  right: 55%;
->>>>>>> 5175e3f (new files)
+}
+
+
+#lifeboat_left,
+#lifeboat_right {
+  visibility: hidden;
+  background-color: #e4e0e0;
+  width: 18px;
+  height: 5px;
+  transform: skew(57deg);
+  position: relative;
+  top: 45px;
+  z-index: 3;
+}
+
+#lifeboat_right {
+  transform: skewX(-57deg);
+  top: 40px;
+}
+
+#people_in_sea {
+  position: relative;
+  height: 3px;
+  width: 3px;
+  z-index: 3;
+  background-color: #1192b9;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 #wifi1, 
 #wifi2, 
 #wifi3 {
-<<<<<<< HEAD
-  position: absolute;
-=======
  position: absolute;
->>>>>>> 5175e3f (new files)
  visibility: hidden;
   top: -70px;
   right: 130px;
@@ -200,35 +151,32 @@ visibility: hidden;
   right: 125px;
 }
 
-<<<<<<< HEAD
-#funnel4 {
-  top: 8px;
-  right: 85px;
+.container_mm {
+  position: absolute;
+  top: 15%;
+  z-index: 99;
 }
 
-.iceberg {
-  grid-area: vessel;
-  position: relative;
-  top: 180px;
-  left: 300px;
-  z-index: 2;
-  transform: scale(0.8);
+.container_mm img {
+    display: flex;
+    margin: 3% auto;
 }
 
-.arrow,
-#yelarr {
-  grid-area: vessel;
-  font-family: Arial;
-  position: relative;
-  top: 260px;
-  left: 80px;
-  color: yellow;
+.container_reload {
+   width: fit-content;
+   margin: 15% auto;
+   position: relative;
 }
 
-#yelarr {
-  transform: rotate(170deg) scale(0.7);
-=======
-
+#overlay_reload {
+  display: block;
+  width: 10%;
+  height: auto;
+  left: -100px;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 999;
+}
 
 
 @keyframes moving_vessel_complete {
@@ -239,222 +187,100 @@ visibility: hidden;
 
 @keyframes sinking_vessel_complete {
 
- from {rotate: 0deg;}
- to {rotate: 40deg;}
->>>>>>> 5175e3f (new files)
+    0% {
+    -webkit-transform: rotate(0deg);
+  }
 
+  100% {
+    -webkit-transform: translateY(50px) rotate(40deg);
+  }
+  
 }
 
-
-<<<<<<< HEAD
-.water {
-  grid-area: water;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-
-}
-
-.water #map,
-.water img {
-  margin: 30px 15px;
-}
-
-#map {
-  height: 300px;
-  width: 300px;
-}
-
-
-#time {
-  text-align: center;
-  font-family: 'Dancing Script', cursive;
-  font-size: 30px;
-  padding-top: 50px;
-  color: white;
- }
-
-#time br {
-  height: 15px;
-}
-
-#wreck {
-  float: right;
-  margin-right: 100px;
-  visibility: hidden;
-}
-
-#lifeboat_container,
-#people {
-  grid-area: vessel;
-  display: inline-block;
-}
-
-#lifeboat_left,
-#lifeboat_right {
-  visibility: hidden;
-  background-color: #e4e0e0;
-  width: 18px;
-  height: 5px;
-  transform: skew(57deg);
-  position: relative;
-  top: 455px;
-  z-index: 3;
-}
-
-#lifeboat_right {
-  transform: skewX(-57deg);
-  top: 450px;
-}
-
-#people_in_sea {
-  position: relative;
-  height: 3px;
-  width: 3px;
-  z-index: 3;
-  background-color: #1192b9;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-#overlay,
-#overlay_reload {
-  width: 100%;
-  display: none;
-  position: absolute;
-  top: 15%;
-  z-index: 99;
-}
-
-#overlay_reload {
-  display: block;
-  z-index: 999;
-}
-
-#overlay img {
-  display: block;
-  margin: 0 auto;
-}
-
-@keyframes moving_sinking_front {
-=======
 
 @keyframes moving_sinking_front {
 
->>>>>>> 5175e3f (new files)
+  /* Wordt niet meer gebruikt..
+
   0% {
     -webkit-transform: translate(0px, 0);
   }
 
 
-<<<<<<< HEAD
-  60% {
-    -webkit-transform: translateX(950px);
-  }
-
-  70% {
-    -webkit-transform: translateX(950px) translateY(17px) rotate(10deg);
-=======
   70% {
     -webkit-transform: translateY(17px) rotate(10deg);
->>>>>>> 5175e3f (new files)
 
   }
 
-  75% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(930px) translateY(60px) rotate(30deg);
-=======
+*/
+
+0% {
     -webkit-transform: translateY(60px) rotate(30deg);
->>>>>>> 5175e3f (new files)
 
   }
 
-  80% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(950px) translateY(80px) rotate(55deg);
-=======
+30% {
     -webkit-transform: translateY(80px) rotate(55deg);
->>>>>>> 5175e3f (new files)
+    
   }
 
 
-  83% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(950px) translateY(250px) rotate(55deg);
-=======
+50% {
     -webkit-transform: translateY(250px) rotate(55deg);
->>>>>>> 5175e3f (new files)
   }
 
 
   100% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(1150px) translateY(400px) rotate(55deg);
-=======
-    -webkit-transform: translateY(400px) rotate(60deg);
->>>>>>> 5175e3f (new files)
+    -webkit-transform: translate(300px, 400px) rotate(60deg);
 
   }
 
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5175e3f (new files)
 @keyframes moving_sinking_rear {
   0% {
-    -webkit-transform: translate(0px, 0);
+    -webkit-transform: translateY(0px) rotate(40deg);
   }
 
-<<<<<<< HEAD
+ 40% {
+    -webkit-transform: translateY(0px) rotate(5deg);
+  }
+
+50% {
+    -webkit-transform: translateY(0px) rotate(65deg);
+  }
 
   60% {
-    -webkit-transform: translateX(950px);
+    -webkit-transform: translateY(0px) rotate(75deg);
   }
 
-  70% {
-    -webkit-transform: translateX(950px) translateY(-13px) rotate(10deg);
+   70% {
+    -webkit-transform: translateY(0px) rotate(85deg);
   }
 
-  75% {
-    -webkit-transform: translateX(950px) translateY(-22px) rotate(30deg);
-  }
+80% {
+    -webkit-transform: translateY(0px) rotate(90deg);
 
-  80% {
-    -webkit-transform: translateX(963px) translateY(0px) rotate(15deg);
-=======
-  70% {
-    -webkit-transform: translateY(-13px) rotate(10deg);
-  }
+}
 
-  75% {
-    -webkit-transform: translateY(-22px) rotate(30deg);
-  }
 
-  80% {
-    -webkit-transform: translateY(0px) rotate(15deg);
->>>>>>> 5175e3f (new files)
+85% {
+    -webkit-transform: translateY(20px) rotate(90deg);
+
+  }
+90% {
+    -webkit-transform: translateY(50px) rotate(90deg);
 
   }
 
   95% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(975px) translateY(50px) rotate(80deg);
-=======
-    -webkit-transform: translateY(50px) rotate(80deg);
->>>>>>> 5175e3f (new files)
+    -webkit-transform: translateY(90px) rotate(90deg);
 
   }
 
   100% {
-<<<<<<< HEAD
-    -webkit-transform: translateX(975px) translateY(70px) rotate(80deg);
-=======
-    -webkit-transform: translateY(70px) rotate(80deg);
->>>>>>> 5175e3f (new files)
+    -webkit-transform: translateY(120px) rotate(90deg);
   }
 
 }
@@ -485,14 +311,6 @@ visibility: hidden;
 
 }
 
-<<<<<<< HEAD
-@media (max-width: 1350px) {
-
-  #time {
-    z-index: 10;
-  }
-}
-=======
 @media (max-width: 1400px) {
 
 #vessel-complete img, 
@@ -771,4 +589,3 @@ visibility: hidden;
 }
 }
 */
->>>>>>> 5175e3f (new files)

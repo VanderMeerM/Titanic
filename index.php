@@ -16,20 +16,24 @@
 </head>
 <body>
 
+<?php 
+
+echo '
+
 <div class="sky">
 
  <div id="time"> Wat gebeurde er op die fatale nacht van 14 april 1912 in de Atlantische Oceaan? </div> 
 
 <div class="container_vessel">
 
-
 <div id="vessel-complete"> 
     <img src="./img/titanic_complete.png">
 
 </div>
 
-
 </div>
+
+ <div class="container_reload"> </div>
 
 <div class="iceberg">
     <img src="./img/iceberg.png">
@@ -40,7 +44,6 @@
     
     <div id="vessel-rear"> 
     <img src="./img/titanic_rear_without funnels.png">
-        <div id="vessel-rear_between"></div>
         <div id="funnel1"> <img src="./img/funnel1.png"></div>
         <div id="funnel2"> <img src="./img/funnel2.png"></div>
 </div>
@@ -56,15 +59,18 @@
         <div id="funnel4"> <img src="./img/funnel4.png"></div>
 </div>
 </div>
-
-    
+  
 </div>
 
 <div class="sea">
 
+<div class="lifeboat_container"> </div>
+<div class="people_container"> </div>
 
 </div>
 
+';
+?>
 
 </body>
 </html>
