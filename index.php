@@ -26,7 +26,9 @@ echo '
 <audio id="collission" src="./audio/collision.wav" type="audio/mpeg"></audio>
 <audio id="heart" src="./audio/MyHeartWillGoOn.mp3" type="audio/mpeg"></audio>
 
+<
  <div id="time"> Wat gebeurde er op die fatale nacht van 14 april 1912 in de Atlantische Oceaan? </div> 
+ <div id="signal"> Klik op de boot..</div>
 
 <div class="container_vessel">
 
@@ -36,6 +38,7 @@ echo '
 </div>
 
 </div>
+
 
  <div class="container_reload"> </div>
 
@@ -54,7 +57,7 @@ echo '
 
 <div id="vessel-front"> 
     <img src="./img/titanic_front_without funnels.png">
-        <div> 
+        <div class="container_wifi"> 
             <img id="wifi3" src="./img/wifi_signal_3.png">
             <img id="wifi2" src="./img/wifi_signal_2.png">
             <img id="wifi1" src="./img/wifi_signal_1.png">
@@ -71,9 +74,8 @@ echo '
 <div class="lifeboat_container"> </div>
 <div class="people_container"> </div>
 
-</div>
+</div>';
 
-';
 ?>
 
 </body>

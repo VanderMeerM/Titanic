@@ -1,5 +1,6 @@
 
 const time = document.getElementById('time');
+const signal = document.getElementById('signal');
 const vesselComplete = document.querySelector('.container_vessel');
 const vesselPieces = document.querySelector('.container_vessel_pieces');
 const vesselFront = document.getElementById('vessel-front');
@@ -7,70 +8,16 @@ const vesselRear = document.getElementById('vessel-rear');
 const icebergWarning = document.getElementById('iceberg');
 const collission = document.getElementById('collission');
 const heartSong = document.getElementById('heart');
-const wreck = document.getElementById('wreck');
 const funnel1 = document.getElementById('funnel1');
 const funnel2 = document.getElementById('funnel2');
 const funnel3 = document.getElementById('funnel3');
 const funnel4 = document.getElementById('funnel4');
 
-const premiere = new Date(2024,3,10).getTime();
-const today = new Date().getTime();
+const timeStartPlayCQD = 13000;
+const timeStartPlayEnd = timeStartPlayCQD + 21000;
 
-let restdays; 
-const timeStartPlaySeeYa = 31000;
-const timeStartPlayCQD = 10000;
-
-
-/*
-
-if (Math.ceil((premiere-today)/86400000) < 0) {
-    restdays = '';
-} 
-else if (Math.ceil((premiere-today)/86400000) == 1) {
-    restdays = 'Nog 1 dag tot de premiÃ¨re...';
-}
-
-else {
-    restdays = `Nog ${Math.ceil((premiere-today)/86400000)} dagen tot de premiÃ¨re...`;
-}
-
-checkScreenwidth();
-
-
-function checkScreenwidth() {
-
-
-    if (window.outerWidth <= 1350 || screen.width <= 1350) {
-        document.body.style.overflow = 'hidden';
-        document.body.style.filter = 'blur(2px)';
-        document.body.style.maxWidth = screen.width;
-        document.querySelector('.arrow').style.visibility = 'hidden';
-        document.getElementById('yelarr').style.visibility = 'hidden';
-
-        let quest = confirm(`To play this application a minimum screen width of 1351px is required. 
-        Would you like to watch a demo?`);
-        if(quest) {
-            window.location = 'https://marcelvandermeer.nl/Portfolio/Titanic/pics/demo.mp4';
-        }          
-        
-    }
-
-    else {
-        vesselFront
-            .addEventListener('click', () => { moveVessel() });
-
-        vesselRear
-            .addEventListener('click', () => { moveVessel() });
-
-    }
-
-}
-
-*/
 
 vesselComplete.addEventListener('click', () => { moveVessel() });
-
-//vesselRear.addEventListener('click', () => { moveVessel() });
 
 
 function showLifeBoats(pos_left, num) {
@@ -107,115 +54,140 @@ function showPeopleInSea(position_left, position_top, num) {
 
 function moveVessel() {
 
-   // document.querySelector('.arrow').style.visibility = 'hidden';
-  //  document.querySelector('#yelarr').style.visibility = 'hidden';
+    signal.textContent = '';
 
-    vesselComplete.style.animation = `moving_vessel_complete 9s ease-out`; 
+    vesselComplete.style.animation = `moving_vessel_complete 13s ease-out`; 
 
-   // vesselRear.style.animation = "moving_sinking_rear 20s";
-
-   icebergWarning.play();
+    icebergWarning.play();
 
     time.textContent = 'April 14, 1912 23:40';
 
-    
+    let duration = 200; 
+    let multiplier = 1;
+
     setTimeout(() => {
         collission.play();
     }, 2500);
 
-/*
+
+    // Toon CQD met wifi-signalen.. 
 
      // C 
     setTimeout(() => { 
-            time.innerHTML += '<br> <span style="color:orange; font-size:35px;">C</span>';
+            time.textContent = 'April 15, 1912 0:00';
+            vesselComplete.style.visibility = 'hidden';
+            vesselPieces.style.visibility = 'visible';
+            signal.innerHTML = '<span class="signal_text">C</span>';
             document.getElementById('wifi1').style.visibility = 'visible';
+            tone_dah(Tone.now()) }, timeStartPlayCQD);
 
-    tone_dah(Tone.now()) }, timeStartPlayCQD);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + 200);
+    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
+
     setTimeout(() => { tone_dah(Tone.now()); 
-        document.getElementById('wifi2').style.visibility = 'visible';
-    }, timeStartPlayCQD + 400);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + 600);
-    setTimeout(() => {}, timeStartPlayCQD + 1000);
+        document.getElementById('wifi3').style.visibility = 'visible';
+    }, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
+
+    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
+
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier = 6;
 
      // Q 
      setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">Q</span>';
-        document.getElementById('wifi3').style.visibility = 'visible';
-    
-    tone_dah(Tone.now())}, timeStartPlayCQD + 1200);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + 1400);
+        signal.innerHTML += '<span class="signal_text">Q</span>';
+        document.getElementById('wifi2').style.visibility = 'visible';
+        tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
+
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
     setTimeout(() => { tone_dit(Tone.now());
         document.getElementById('wifi1').style.visibility = 'hidden';
         document.getElementById('wifi2').style.visibility = 'hidden';
-        document.getElementById('wifi3').style.visibility = 'hidden';
-    
-    }, timeStartPlayCQD + 1600);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + 1800);
+        document.getElementById('wifi3').style.visibility = 'hidden';    
+    }, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier = 9;
+
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier = 11;
+
     setTimeout(() => {
         document.getElementById('wifi1').style.visibility = 'visible';
-
-    }, timeStartPlayCQD + 2200);
+        }, timeStartPlayCQD + (multiplier * duration));
      
+        multiplier++
      // D 
      setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">D</span>';
-        document.getElementById('wifi2').style.visibility = 'visible';
-    
-     tone_dah(Tone.now())}, timeStartPlayCQD + 2400);
+        signal.innerHTML += '<span class="signal_text">D</span>';
+        document.getElementById('wifi3').style.visibility = 'visible';    
+        vesselPieces.style.animation = "sinking_vessel_complete 7s ease-in";
+        tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+      multiplier++
+
      setTimeout(() => { tone_dit(Tone.now());
-        document.getElementById('wifi3').style.visibility = 'visible';
-    }, timeStartPlayCQD + 2600);
-     setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + 2800);
+        document.getElementById('wifi2').style.visibility = 'visible';
+    }, timeStartPlayCQD + (multiplier * duration));
+
+     setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+     multiplier++
+
      setTimeout(() => { 
         document.getElementById('wifi1').style.visibility = 'hidden';
         document.getElementById('wifi2').style.visibility = 'hidden';
         document.getElementById('wifi3').style.visibility = 'hidden';
-    }, timeStartPlayCQD + 3000);
+    }, timeStartPlayCQD + (multiplier * duration));
 
-   */
+   multiplier++;
 
     setTimeout(() => {
-     vesselComplete.style.visibility = 'hidden';
-     vesselPieces.style.visibility = 'visible';
 
-       // vesselFront.style.zIndex = 3;
-    }, 8900); 
+     while (signal.firstChild) {
+     signal.removeChild(signal.firstChild);
+    }
+    }, timeStartPlayCQD + (multiplier * duration)); 
 
 
  setTimeout(() => {
         time.textContent = 'April 15, 1912 0:30';
-        vesselPieces.style.animation = "sinking_vessel_complete 5s ease-in";
         showLifeBoats(900, 10);
-    }, 11000);
-
-     setTimeout(() => {
-       funnel4.style.animation = "falloff_funnels_front 7s";
-        showLifeBoats(900, 10);
-    }, 12000);
-
-    /*
-    setTimeout(() => {
-        time.textContent = 'April 15, 1912 0:30';
-        funnel4.style.animation = "falloff_funnels_front 7s";
-        showLifeBoats(900, 10);
-    }, 13000);
-*/
-    setTimeout(() => {
-       // vesselFront.style.animation = "moving_sinking_front 10s";
-        vesselFront.style.visibility = 'hidden';
-        vesselRear.style.animation = "moving_sinking_rear 10s";
-        funnel3.style.animation = "falloff_funnels_front 5s";
-        funnel1.style.animation = "falloff_funnels_back 5s";
-        funnel2.style.animation = "falloff_funnels_back 5s";
-        showLifeBoats(900, 8);
-        heartSong.play();
     }, 16000);
 
+     setTimeout(() => {
+        showLifeBoats(900, 10);
+    }, 17000);
+
+    setTimeout(() => {
+       funnel4.style.animation = "falloff_funnels_front 7s";
+    }, 18000);
+
+        setTimeout(() => {
+       funnel3.style.animation = "falloff_funnels_front 7s";
+    }, 18500);
  
     setTimeout(() => {
         time.textContent = 'April 15, 1912 1:30';
+        showLifeBoats(900, 8);
+        heartSong.play();
+    }, 19000);
 
+ 
+    setTimeout(() => {
+        funnel1.style.animation = "falloff_funnels_back 5s";
+        funnel2.style.animation = "falloff_funnels_back 5s";
+        vesselFront.style.visibility = 'hidden';
+        vesselRear.style.animation = "moving_sinking_rear 7s";
         funnel1.style.visibility = "hidden";
         funnel2.style.visibility = "hidden";
         funnel3.style.visibility = "hidden";
@@ -223,33 +195,33 @@ function moveVessel() {
 
         showLifeBoats(900, 6)
 
-    }, 20000);
+    }, 22000);
 
     setTimeout(() => {
         time.textContent = 'April 15, 1912 2:00';
 
-    }, 23000);
+    }, 23500);
 
     setTimeout(() => {
         time.textContent = 'April 15, 1912 2:20';
-        showPeopleInSea(970, -300, 100);
-
-    }, 24500);
-
-    setTimeout(() => {
-        time.innerHTML =  //April 15, 1912 2:20 <br>
-        `1500 passagiers vonden de dood... <br>`;
-        time.style.fontFamily = 'Arial';
-        vesselRear.style.visibility = 'hidden';
 
     }, 26500);
 
     setTimeout(() => {
-        time.innerHTML = //April 15, 1912 2:20 <br>
+        time.textContent =  
+        `1500 passagiers vonden de dood... `;
+        time.style.fontFamily = 'Arial';
+        vesselRear.style.visibility = 'hidden';
+        showPeopleInSea(970, -350, 100);
+
+    }, 28500);
+
+    setTimeout(() => {
+        time.textContent = 
         `300 kwamen in het ijskoude water terecht...`;
         time.style.fontFamily = 'Arial';
 
-    }, 28000);
+    }, 30000);
 
     setTimeout(() => {
         time.textContent = 'In april 2024 zette MusicalMakers dit verhaal op de planken.';
@@ -260,12 +232,11 @@ function moveVessel() {
         const newImg = document.createElement('img');
 
         newImg.src = './img/titanic_musical.png';
-        newImg.style.height = `auto`; //`${measure_heigth}px`;
-        newImg.style.width = `80%`; //`${measure_width}px`;
+        newImg.style.height = `auto`; 
+        newImg.style.width = `80%`; 
 
 
         newDiv.setAttribute('class', 'container_mm');
-        //newDiv.style.display = 'flex';
         newDiv.appendChild(newImg);
         document.body.appendChild(newDiv);
 
@@ -280,91 +251,49 @@ function moveVessel() {
             location.reload();
         })
 
-    }, 30000);
+    }, 32000);
 
-    /*
+  
+    // EINDE 
+    setTimeout(() => { 
+       // document.querySelector('.stars').style.zIndex = "100";
+        signal.innerHTML += '<span class="signal_text">E</span>';
+        tone_dah(Tone.now()) }, timeStartPlayEnd);
+
+    setTimeout(() => {}, timeStartPlayEnd + 400);
+
+    setTimeout(() => { 
+        signal.innerHTML += '<span class="signal_text">I</span>';
+    
+    tone_dah(Tone.now());}, timeStartPlayEnd + 600);
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 800);
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 1000);
+    setTimeout(() => {}, timeStartPlayEnd + 1400);
+
+    setTimeout(() => { 
+        signal.innerHTML += '<span class="signal_text">N</span>';
+        tone_dah(Tone.now())}, timeStartPlayEnd + 1600);
+
+    setTimeout(() => {}, timeStartPlayEnd + 2000);
+
+    setTimeout(() => { 
+        signal.innerHTML += '<span class="signal_text">D</span>';
+    
+    tone_dah(Tone.now())}, timeStartPlayEnd + 2200);
+    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 2400);
+    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 2600);
+    setTimeout(() => {}, timeStartPlayEnd + 3000);
+
+    setTimeout(() => { 
+        signal.innerHTML += '<span class="signal_text">E</span>';
+
+    tone_dit(Tone.now())}, timeStartPlayEnd + 3200);
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3400);
+    setTimeout(() => {}, timeStartPlayEnd + 3800);  
     setTimeout(() => {
-        time.innerHTML = 
-       // Kom kijken en koop je kaartje op musicalmakers.nl ! <br>
-       `${restdays}`;
-
-        time.style.fontFamily = 'Arial';
-        const newDiv = document.createElement('div');
-        const newImg = document.createElement('img');
-        newImg.src = './Titanic/pics/Titanic_Musical.jpg';
-        const measure_heigth = 0.7 * screen.height;
-        const measure_width = 1.77 * measure_heigth;
-
-        newImg.style.height = `${measure_heigth}px`;
-        newImg.style.width = `${measure_width}px`;
-
-        newDiv.setAttribute('id', 'overlay');
-        newDiv.style.display = 'block';
-        newDiv.appendChild(newImg);
-        document.body.appendChild(newDiv);
-
-        const divReload = document.createElement('div');
-        const imgReload = document.createElement('img');
-        imgReload.src = './Titanic/pics/reload.png';
-        divReload.setAttribute('id', 'overlay_reload');
-        divReload.appendChild(imgReload);
-        document.getElementById('overlay').appendChild(divReload);
-
-        imgReload.addEventListener('click', () => {
-            location.reload();
-        })
-
-    }, 30000);
-
-   
-    // TOT 
-    setTimeout(() => { 
-        document.querySelector('.stars').style.zIndex = "100";
-        time.innerHTML += '<br> <span style="color:orange; font-size:35px;">T</span>';
-        tone_dah(Tone.now()) }, timeStartPlaySeeYa);
-
-    setTimeout(() => {}, timeStartPlaySeeYa + 400);
-
-    setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">O</span>';
-    
-    tone_dah(Tone.now());}, timeStartPlaySeeYa + 600);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlaySeeYa + 800);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlaySeeYa + 1000);
-    setTimeout(() => {}, timeStartPlaySeeYa + 1400);
-
-    setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">T</span>';
-        tone_dah(Tone.now())}, timeStartPlaySeeYa + 1600);
-
-    setTimeout(() => {}, timeStartPlaySeeYa + 2000);
-
-    // DAN
-    setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;"> D</span>';
-    
-    tone_dah(Tone.now())}, timeStartPlaySeeYa + 2200);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlaySeeYa + 2400);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlaySeeYa + 2600);
-
-    setTimeout(() => {}, timeStartPlaySeeYa + 3000);
-
-    setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">A</span>';
-
-    tone_dit(Tone.now())}, timeStartPlaySeeYa + 3200);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlaySeeYa + 3400);
-
-    setTimeout(() => {}, timeStartPlaySeeYa + 3800);
-
-    setTimeout(() => { 
-        time.innerHTML += '<span style="color:orange; font-size:35px;">N !!</span>';
-    tone_dah(Tone.now())}, timeStartPlaySeeYa + 4000);
-
-    setTimeout(() => { 
-        tone_dit(Tone.now())}, timeStartPlaySeeYa + 4200);
- 
-         */
+        document.getElementById('overlay_reload').style.display = 'block';
+    }, timeStartPlayEnd + 4000);  
+         
 }
  
 

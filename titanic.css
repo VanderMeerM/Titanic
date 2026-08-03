@@ -14,7 +14,8 @@ body {
        
 }
 
-.sky, .sea {
+
+.sky {
     position:relative;
     background-image: url(./img/stars.png);
     height: 50vh;
@@ -30,11 +31,19 @@ body {
  }
 
  #time {
- text-align: center;
+    text-align: center;
     font-family: 'Dancing Script', cursive;
     font-size: 30px;
     padding-top: 3%;
     color: white;
+ }
+
+ #signal {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: orange;
+  padding-top: 1%;
  }
 
 .container_vessel, 
@@ -130,25 +139,33 @@ visibility: hidden;
   display: inline-block;
 }
 
+.container_wifi {
+  position: relative;
+    top: -90px;
+    right: -75px;
+    width: 50px;
+}
+
 #wifi1, 
 #wifi2, 
 #wifi3 {
  position: absolute;
  visibility: hidden;
-  top: -70px;
-  right: 130px;
+ top: -70px;
+ right: 100px;
 }
 
 #wifi2 {
   top: -50px;
 }
 
-#wifi1{
+#wifi1 {
   top: -30px;
 }
 
-#wifi3{
-  right: 125px;
+.signal_text {
+  color:orange; 
+  font-size:35px;
 }
 
 .container_mm {
@@ -167,12 +184,12 @@ visibility: hidden;
 
 .container_reload {
    width: fit-content;
-   margin: 15% auto;
+   margin: 10% auto;
    position: relative;
 }
 
 #overlay_reload {
-  display: block;
+  display: none;
   width: 10%;
   height: auto;
   left: -100px;
@@ -191,19 +208,21 @@ visibility: hidden;
 @keyframes sinking_vessel_complete {
 
     0% {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: translateY(0px) rotate(0deg);
   }
 
   100% {
-    -webkit-transform: translateY(50px) rotate(40deg);
+    -webkit-transform: translateY(80px) rotate(30deg);
   }
   
 }
 
+  /*
+
+   Wordt niet meer gebruikt..
+
 
 @keyframes moving_sinking_front {
-
-  /* Wordt niet meer gebruikt..
 
   0% {
     -webkit-transform: translate(0px, 0);
@@ -215,7 +234,7 @@ visibility: hidden;
 
   }
 
-*/
+
 
 0% {
     -webkit-transform: translateY(60px) rotate(30deg);
@@ -239,39 +258,41 @@ visibility: hidden;
   }
 
 }
-
+*/
 
 @keyframes moving_sinking_rear {
+ /*
   0% {
-    -webkit-transform: translateY(0px) rotate(40deg);
+    -webkit-transform: translateY(15px) rotate(30deg);
+  }
+*/
+ 0% {
+    -webkit-transform: translateY(15px) rotate(30deg);
   }
 
- 40% {
-    -webkit-transform: translateY(0px) rotate(5deg);
+70% {
+    -webkit-transform: translateY(30px) rotate(60deg);
   }
 
-50% {
-    -webkit-transform: translateY(0px) rotate(65deg);
-  }
-
+  /*
   60% {
-    -webkit-transform: translateY(0px) rotate(75deg);
+    -webkit-transform: translateY(14px) rotate(75deg);
   }
-
    70% {
-    -webkit-transform: translateY(0px) rotate(85deg);
+    -webkit-transform: translateY(16px) rotate(85deg);
   }
-
+*/
 80% {
-    -webkit-transform: translateY(0px) rotate(90deg);
+    -webkit-transform: translateY(35px) rotate(80deg);
 
 }
 
-
+ /*
 85% {
-    -webkit-transform: translateY(20px) rotate(90deg);
+    -webkit-transform: translateY(40px) rotate(85deg);
 
   }
+ 
 90% {
     -webkit-transform: translateY(50px) rotate(90deg);
 
@@ -281,9 +302,10 @@ visibility: hidden;
     -webkit-transform: translateY(90px) rotate(90deg);
 
   }
+    */
 
   100% {
-    -webkit-transform: translateY(120px) rotate(90deg);
+    -webkit-transform: translateY(120px) rotate(85deg);
   }
 
 }
@@ -446,6 +468,18 @@ visibility: hidden;
  #vessel-rear img {
     width: 50%;
  }
+
+ .container_wifi {
+   top: -40px;
+ }
+
+ #wifi2 {
+  top: -40px;
+}
+
+#wifi3 {
+  top: -50px;
+}
 
 #funnel1,
 #funnel2 { 
