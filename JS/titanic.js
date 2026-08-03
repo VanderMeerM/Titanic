@@ -67,7 +67,7 @@ function moveVessel() {
 
     setTimeout(() => {
         collission.play();
-    }, 2500);
+    }, 4000);
 
 
     // Toon CQD met wifi-signalen.. 
@@ -161,6 +161,7 @@ function moveVessel() {
 
  setTimeout(() => {
         time.textContent = 'April 15, 1912 0:30';
+        heartSong.play();
         showLifeBoats(900, 10);
     }, 16000);
 
@@ -179,7 +180,6 @@ function moveVessel() {
     setTimeout(() => {
         time.textContent = 'April 15, 1912 1:30';
         showLifeBoats(900, 8);
-        heartSong.play();
     }, 19000);
 
  
@@ -256,7 +256,6 @@ function moveVessel() {
   
     // EINDE 
     setTimeout(() => { 
-       // document.querySelector('.stars').style.zIndex = "100";
         signal.innerHTML += '<span class="signal_text">E</span>';
         tone_dah(Tone.now()) }, timeStartPlayEnd);
 
@@ -272,27 +271,31 @@ function moveVessel() {
 
     setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">N</span>';
-        tone_dah(Tone.now())}, timeStartPlayEnd + 1600);
+            setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 1600);
 
-    setTimeout(() => {}, timeStartPlayEnd + 2000);
+        tone_dah(Tone.now())}, timeStartPlayEnd + 2000);
+
+    setTimeout(() => {}, timeStartPlayEnd + 2200);
 
     setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">D</span>';
     
-    tone_dah(Tone.now())}, timeStartPlayEnd + 2200);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 2400);
+    tone_dah(Tone.now())}, timeStartPlayEnd + 2400);
     setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 2600);
-    setTimeout(() => {}, timeStartPlayEnd + 3000);
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3000);
+    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3200);
+
+    setTimeout(() => {}, timeStartPlayEnd + 3600);
 
     setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">E</span>';
 
-    tone_dit(Tone.now())}, timeStartPlayEnd + 3200);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3400);
-    setTimeout(() => {}, timeStartPlayEnd + 3800);  
+    tone_dit(Tone.now())}, timeStartPlayEnd + 3800);
+   // setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3400);
+    setTimeout(() => {}, timeStartPlayEnd + 4000);  
     setTimeout(() => {
         document.getElementById('overlay_reload').style.display = 'block';
-    }, timeStartPlayEnd + 4000);  
+    }, timeStartPlayEnd + 4200);  
          
 }
  

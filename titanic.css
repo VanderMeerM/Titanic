@@ -212,7 +212,7 @@ visibility: hidden;
   }
 
   100% {
-    -webkit-transform: translateY(80px) rotate(30deg);
+    -webkit-transform: translateY(60px) rotate(25deg);
   }
   
 }
@@ -267,7 +267,7 @@ visibility: hidden;
   }
 */
  0% {
-    -webkit-transform: translateY(15px) rotate(30deg);
+    -webkit-transform: translateY(5px) rotate(15deg);
   }
 
 70% {
