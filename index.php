@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+
     <title>Titanic Sinking animation</title>
     <link rel="stylesheet" href="./titanic.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;display=swap" rel="stylesheet">
@@ -11,7 +16,6 @@
     </script>
     <script defer type="text/javascript" src="./JS/titanic.js"></script>
     <script defer type="text/javascript" src="./JS/morse_code_dict.js"></script>
-    <script defer type="text/javascript" src="./JS/play_morsecode.js"></script>
 
 </head>
 <body>
@@ -26,9 +30,8 @@ echo '
 <audio id="collission" src="./audio/collision.wav" type="audio/mpeg"></audio>
 <audio id="heart" src="./audio/MyHeartWillGoOn.mp3" type="audio/mpeg"></audio>
 
-<
  <div id="time"> Wat gebeurde er op die fatale nacht van 14 april 1912 in de Atlantische Oceaan? </div> 
- <div id="signal"> Klik op de boot..</div>
+ <div id="signal"> Klik (indien zichtbaar) op de boot..</div>
 
 <div class="container_vessel">
 

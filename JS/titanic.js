@@ -5,16 +5,47 @@ const vesselComplete = document.querySelector('.container_vessel');
 const vesselPieces = document.querySelector('.container_vessel_pieces');
 const vesselFront = document.getElementById('vessel-front');
 const vesselRear = document.getElementById('vessel-rear');
-const icebergWarning = document.getElementById('iceberg');
-const collission = document.getElementById('collission');
-const heartSong = document.getElementById('heart');
 const funnel1 = document.getElementById('funnel1');
 const funnel2 = document.getElementById('funnel2');
 const funnel3 = document.getElementById('funnel3');
 const funnel4 = document.getElementById('funnel4');
 
+const icebergWarning = document.getElementById('iceberg');
+const collission = document.getElementById('collission');
+const heartSong = document.getElementById('heart');
+
+const wifi1 = document.getElementById('wifi1');
+const wifi2 = document.getElementById('wifi2');
+const wifi3 = document.getElementById('wifi3');
+
 const timeStartPlayCQD = 13000;
 const timeStartPlayEnd = timeStartPlayCQD + 21000;
+
+
+// Geluid voor morsecode..
+
+var dot_time = 0.050;
+var dash_time = dot_time*3;
+var inter_elem_time = dot_time;
+var space_time = dot_time*7;
+
+var osc = new Tone.Oscillator({
+      "frequency": 550,
+      "volume" : 0
+}).toDestination();
+
+
+// Korte toon
+  var tone_dit = function(time, char) {
+  osc.start(time);
+  osc.stop(time+dot_time);
+}
+
+// Lange toon 
+var tone_dah = function(time, char) {
+  osc.start(time);
+  osc.stop(time+dash_time);
+}
 
 
 vesselComplete.addEventListener('click', () => { moveVessel() });
@@ -51,10 +82,22 @@ function showPeopleInSea(position_left, position_top, num) {
     }
 }
 
+function hideWifiSignals() {
+ wifi1.style.visibility = 'hidden';
+ wifi2.style.visibility = 'hidden';
+ wifi3.style.visibility = 'hidden';    
+}
+
+let blinkSignal = 
+setInterval(()=> { signal.style.display = 'none'; }, 1000)
+setInterval(()=> { signal.style.display = 'block'; }, 2000)
+
 
 function moveVessel() {
 
     signal.textContent = '';
+
+    clearInterval(blinkSignal);
 
     vesselComplete.style.animation = `moving_vessel_complete 13s ease-out`; 
 
@@ -81,11 +124,15 @@ function moveVessel() {
             document.getElementById('wifi1').style.visibility = 'visible';
             tone_dah(Tone.now()) }, timeStartPlayCQD);
 
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+    setTimeout(() => { 
+        tone_dit(Tone.now());
+        document.getElementById('wifi2').style.visibility = 'visible';
+    }, timeStartPlayCQD + (multiplier * duration));
 
     multiplier++
 
-    setTimeout(() => { tone_dah(Tone.now()); 
+    setTimeout(() => { 
+        tone_dah(Tone.now()); 
         document.getElementById('wifi3').style.visibility = 'visible';
     }, timeStartPlayCQD + (multiplier * duration));
 
@@ -97,39 +144,42 @@ function moveVessel() {
 
     setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
 
-    multiplier = 6;
+      setTimeout(() => { 
+       hideWifiSignals();
+    }, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
 
      // Q 
      setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">Q</span>';
+        document.getElementById('wifi1').style.visibility = 'visible';
+        tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+
+    multiplier++
+
+    setTimeout(() => { 
         document.getElementById('wifi2').style.visibility = 'visible';
         tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
 
     multiplier++
 
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
-
     setTimeout(() => { tone_dit(Tone.now());
-        document.getElementById('wifi1').style.visibility = 'hidden';
-        document.getElementById('wifi2').style.visibility = 'hidden';
-        document.getElementById('wifi3').style.visibility = 'hidden';    
+    document.getElementById('wifi3').style.visibility = 'visible';
     }, timeStartPlayCQD + (multiplier * duration));
 
-    multiplier = 9;
+    multiplier++
 
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+    setTimeout(() => { tone_dah(Tone.now())
+       hideWifiSignals(); 
+    }, timeStartPlayCQD + (multiplier * duration));
 
     multiplier = 11;
 
-    setTimeout(() => {
-        document.getElementById('wifi1').style.visibility = 'visible';
-        }, timeStartPlayCQD + (multiplier * duration));
-     
-        multiplier++
      // D 
      setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">D</span>';
-        document.getElementById('wifi3').style.visibility = 'visible';    
+        document.getElementById('wifi1').style.visibility = 'visible';    
         vesselPieces.style.animation = "sinking_vessel_complete 7s ease-in";
         tone_dah(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
 
@@ -139,14 +189,16 @@ function moveVessel() {
         document.getElementById('wifi2').style.visibility = 'visible';
     }, timeStartPlayCQD + (multiplier * duration));
 
-     setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayCQD + (multiplier * duration));
+    multiplier++
+
+     setTimeout(() => { tone_dit(Tone.now())
+     document.getElementById('wifi3').style.visibility = 'visible';
+     }, timeStartPlayCQD + (multiplier * duration));
 
      multiplier++
 
      setTimeout(() => { 
-        document.getElementById('wifi1').style.visibility = 'hidden';
-        document.getElementById('wifi2').style.visibility = 'hidden';
-        document.getElementById('wifi3').style.visibility = 'hidden';
+        hideWifiSignals();
     }, timeStartPlayCQD + (multiplier * duration));
 
    multiplier++;
@@ -255,43 +307,45 @@ function moveVessel() {
 
   
     // EINDE 
+
+    // E (.) 
     setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">E</span>';
         tone_dah(Tone.now()) }, timeStartPlayEnd);
-
     setTimeout(() => {}, timeStartPlayEnd + 400);
 
+    // I (..)
     setTimeout(() => { 
-        signal.innerHTML += '<span class="signal_text">I</span>';
-    
-    tone_dah(Tone.now());}, timeStartPlayEnd + 600);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 800);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 1000);
-    setTimeout(() => {}, timeStartPlayEnd + 1400);
+        signal.innerHTML += '<span class="signal_text">I</span>';    
+        tone_dah(Tone.now());}, timeStartPlayEnd + 600);
+    setTimeout(() => { 
+        tone_dah(Tone.now())}, timeStartPlayEnd + 800);
+    setTimeout(() => {}, timeStartPlayEnd + 1200);
 
+    // N ( -.)
     setTimeout(() => { 
         signal.innerHTML += '<span class="signal_text">N</span>';
-            setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 1600);
+            setTimeout(() => { 
+                tone_dit(Tone.now())}, timeStartPlayEnd + 1600);
+                tone_dah(Tone.now())}, timeStartPlayEnd + 2000);
+            setTimeout(() => {}, timeStartPlayEnd + 2400);
 
-        tone_dah(Tone.now())}, timeStartPlayEnd + 2000);
-
-    setTimeout(() => {}, timeStartPlayEnd + 2200);
-
+    // D (-..)
     setTimeout(() => { 
-        signal.innerHTML += '<span class="signal_text">D</span>';
-    
-    tone_dah(Tone.now())}, timeStartPlayEnd + 2400);
-    setTimeout(() => { tone_dit(Tone.now())}, timeStartPlayEnd + 2600);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3000);
-    setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3200);
-
-    setTimeout(() => {}, timeStartPlayEnd + 3600);
-
+      signal.innerHTML += '<span class="signal_text">D</span>';    
     setTimeout(() => { 
-        signal.innerHTML += '<span class="signal_text">E</span>';
+        tone_dit(Tone.now())}, timeStartPlayEnd + 2600);
+        tone_dah(Tone.now())}, timeStartPlayEnd + 3000); 
+     setTimeout(() => { 
+      tone_dah(Tone.now())}, timeStartPlayEnd + 3200);     
+  
+    setTimeout(() => {}, timeStartPlayEnd + 3400);
 
-    tone_dit(Tone.now())}, timeStartPlayEnd + 3800);
-   // setTimeout(() => { tone_dah(Tone.now())}, timeStartPlayEnd + 3400);
+    // E (.) 
+    setTimeout(() => { 
+       signal.innerHTML += '<span class="signal_text">E</span>';
+        tone_dah(Tone.now())}, timeStartPlayEnd + 3600);
+
     setTimeout(() => {}, timeStartPlayEnd + 4000);  
     setTimeout(() => {
         document.getElementById('overlay_reload').style.display = 'block';

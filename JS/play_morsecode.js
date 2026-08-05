@@ -12,12 +12,15 @@ var space_time = dot_time*7;
   document.getElementById('morse').innerHTML += morse_text;
 }
 
-      var tone_dit = function(time, char) {
+// Korte toon
+  var tone_dit = function(time, char) {
   osc.start(time);
   osc.stop(time+dot_time);
  // addMorseText('â€¢ ', char);
 
 }
+
+// Lange toon 
 var tone_dah = function(time, char) {
   osc.start(time);
   osc.stop(time+dash_time);
